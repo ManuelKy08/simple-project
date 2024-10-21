@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Input Karyawan dan Gaji</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Halaman Login -->
+        <div id="login">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+
+                <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar disini</a></p>
+            </form>
+        </div>
+
+        <!-- Halaman Register -->
+        <div id="register" style="display:none;">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="fullname">Nama Lengkap</label>
+                <input type="text" id="fullname" name="fullname" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="reg_email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="reg_password" name="password" required>
+
+                <button type="submit">Register</button>
+
+                <p>Sudah punya akun? <a href="#" onclick="showLogin()">Login disini</a></p>
+            </form>
+        </div>
+
+        <!-- Halaman Input Karyawan -->
+        <div id="employeeForm" style="display:none;">
+            <h2>Input Data Karyawan</h2>
+            <form id="employeeDataForm">
+                <label for="fullName">Nama Lengkap</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="nickname">Nama Panggilan</label>
+                <input type="text" id="nickname" name="nickname" required>
+
+                <label for="address">Alamat Rumah</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="status">Status</label>
+                <input type="text" id="status" name="status" required>
+
+                <label for="phone">Nomor Telepon</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <button type="button" onclick="showSalaryForm()">Next</button>
+            </form>
+        </div>
+
+        <!-- Halaman Input Gaji -->
+        <div id="salaryForm" style="display:none;">
+            <h2>Input Gaji Karyawan</h2>
+            <form id="salaryDataForm">
+                <label for="salary">Gaji Per Bulan</label>
+                <input type="number" id="salary" name="salary" required>
+
+                <label for="deductions">Total Potongan</label>
+                <input type="number" id="deductions" name="deductions" required>
+
+                <label for="netSalary">Terima Bersih</label>
+                <input type="number" id="netSalary" name="netSalary" required>
+
+                <button type="button" onclick="showReportForm()">Next</button>
+            </form>
+        </div>
+
+        <!-- Halaman Laporan -->
+        <div id="reportForm" style="display:none;">
+            <h2>Laporan Karyawan</h2>
+            <form id="reportDataForm">
+                <label for="reportPeriod">Pilih Periode Laporan</label>
+                <select id="reportPeriod" name="reportPeriod" required>
+                    <option value="monthly">Per Bulan</option>
+                    <option value="weekly">Per Minggu</option>
+                </select>
+
+                <button type="button" class="download-btn">Download PDF</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menampilkan halaman Register
+        function showRegister() {
+            document.getElementById("login").style.display = "none";
+            document.getElementById("register").style.display = "block";
+        }
+
+        // Fungsi untuk menampilkan halaman Login
+        function showLogin() {
+            document.getElementById("register").style.display = "none";
+            document.getElementById("login").style.display = "block";
+        }
+
+        // Fungsi untuk memproses Login
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("login").style.display = "none";
+            document.getElementById("employeeForm").style.display = "block";
+        });
+
+        // Fungsi untuk menampilkan form Gaji setelah input karyawan
+        function showSalaryForm() {
+            document.getElementById("employeeForm").style.display = "none";
+            document.getElementById("salaryForm").style.display = "block";
+        }
+
+        // Fungsi untuk menampilkan form Laporan setelah input gaji
+        function showReportForm() {
+            document.getElementById("salaryForm").style.display = "none";
+            document.getElementById("reportForm").style.display = "block";
+        }
+    </script>
+</body>
+</html>
