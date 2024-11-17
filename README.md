@@ -12,7 +12,7 @@
      **                  Telegram  : @kikikokok9                       **
      **                  Email     : riskymanuel08@proton.me           **
      ====================================================================
- 
+</pre>
 
 ## Sample Demo
 <a href="https://ibb.co.com/FW4QW7V"><img src="https://i.ibb.co.com/W3vr3Kt/login2.png" alt="login2" border="0"></a>
